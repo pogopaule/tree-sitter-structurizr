@@ -1,1 +1,9 @@
 .direnv/
+
+
+# files generate by 'tree-sitter generate'
+Cargo.toml
+binding.gyp
+bindings/
+package.json
+src/
