@@ -6,8 +6,12 @@ module.exports = grammar({
 
     workspace: $ => seq(
       'workspace',
-      $.workspace_name,
-      $.workspace_description,
+      optional(
+        seq(
+          $.workspace_name,
+          optional($.workspace_description)
+        ),
+      ),
       '{',
       '}',
     ),

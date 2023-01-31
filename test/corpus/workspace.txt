@@ -1,5 +1,5 @@
 ==================
-workspace
+workspace with name and description
 ==================
 
 workspace "Workspace Name" "Workspace Description" {
@@ -10,4 +10,34 @@ workspace "Workspace Name" "Workspace Description" {
 
 (source_file
   (workspace (workspace_name) (workspace_description))
+)
+
+
+==================
+workspace with name
+==================
+
+workspace "Workspace Name" {
+
+}
+
+---
+
+(source_file
+  (workspace (workspace_name))
+)
+
+
+==================
+workspace
+==================
+
+workspace {
+
+}
+
+---
+
+(source_file
+  (workspace)
 )
