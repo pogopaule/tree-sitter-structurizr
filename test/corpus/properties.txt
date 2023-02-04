@@ -1,0 +1,57 @@
+==================
+empty properties
+==================
+
+workspace {
+  properties {}
+}
+
+---
+
+(source_file
+  (workspace
+    (properties)
+  )
+)
+
+
+==================
+properties with one name value pair
+==================
+
+workspace {
+  properties {
+    "foo" "bar"
+  }
+}
+
+---
+
+(source_file
+  (workspace
+    (properties (name) (value))
+  )
+)
+
+
+==================
+properties with two name value pairs
+==================
+
+workspace {
+  properties {
+    "foo" "bar"
+    "bla" "blub"
+  }
+}
+
+---
+
+(source_file
+  (workspace
+    (properties
+      (name) (value)
+      (name) (value)
+    )
+  )
+)

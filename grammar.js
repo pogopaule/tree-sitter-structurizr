@@ -4,6 +4,7 @@ module.exports = grammar({
   rules: {
     source_file: $ => $.workspace,
 
+    // TODO : add workspace extend
     workspace: $ => seq(
       'workspace',
       optional(
@@ -13,6 +14,9 @@ module.exports = grammar({
         ),
       ),
       '{',
+      optional(
+        $.properties,
+      ),
       '}',
     ),
 
@@ -25,5 +29,21 @@ module.exports = grammar({
       /[a-zA-Z ]+/,
       '"',
     ),
+
+    properties: $ => seq(
+      'properties',
+      '{',
+      repeat(
+        seq(
+          $.name,
+          $.value,
+        ),
+      ),
+      '}',
+    ),
+
+    name: $ => $._string,
+    value: $ => $._string,
+
   }
 });
