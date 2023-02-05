@@ -41,3 +41,34 @@ workspace {
 (source_file
   (workspace)
 )
+
+==================
+workspace with adrs and docs
+==================
+
+workspace {
+
+  !adrs "a/path"
+  !docs "another/path"
+
+}
+
+---
+
+(source_file
+  (workspace (adrs) (docs))
+)
+
+==================
+workspace with adrs
+==================
+
+workspace {
+  !adrs "a/path"
+}
+
+---
+
+(source_file
+  (workspace (adrs))
+)

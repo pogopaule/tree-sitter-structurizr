@@ -14,9 +14,9 @@ module.exports = grammar({
         ),
       ),
       '{',
-      optional(
-        $.properties,
-      ),
+      optional($.adrs),
+      optional($.docs),
+      optional($.properties),
       '}',
     ),
 
@@ -26,8 +26,18 @@ module.exports = grammar({
 
     _string: $ => seq(
       '"',
-      /[a-zA-Z ]+/,
+      /[a-zA-Z /]+/,
       '"',
+    ),
+
+    adrs: $ => seq(
+      '!adrs',
+      $._string,
+    ),
+
+    docs: $ => seq(
+      '!docs',
+      $._string,
     ),
 
     properties: $ => seq(
