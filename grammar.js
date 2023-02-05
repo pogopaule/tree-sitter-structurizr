@@ -9,20 +9,21 @@ module.exports = grammar({
       'workspace',
       optional(
         seq(
-          $.workspace_name,
-          optional($.workspace_description)
+          $.name,
+          optional($.description)
         ),
       ),
       '{',
+      optional($.properties),
       optional($.adrs),
       optional($.docs),
-      optional($.properties),
+      optional($.model),
       '}',
     ),
 
-    workspace_name: $ => $._string,
+    name: $ => $._string,
 
-    workspace_description: $ => $._string,
+    description: $ => $._string,
 
     _string: $ => seq(
       '"',
@@ -54,6 +55,30 @@ module.exports = grammar({
 
     name: $ => $._string,
     value: $ => $._string,
+
+    model: $ => seq(
+      'model',
+      '{',
+      repeat($.assignment),
+      '}',
+    ),
+
+    assignment: $ => seq(
+      $.identifier,
+      '=',
+      $.person,
+    ),
+
+    person: $ => seq(
+      'person',
+      $.name,
+      $.description
+    ),
+
+
+
+    identifier: $ => /[a-zA-Z0-9]+/,
+
 
   }
 });

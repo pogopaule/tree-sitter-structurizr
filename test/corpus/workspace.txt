@@ -9,7 +9,7 @@ workspace "Workspace Name" "Workspace Description" {
 ---
 
 (source_file
-  (workspace (workspace_name) (workspace_description))
+  (workspace (name) (description))
 )
 
 
@@ -24,7 +24,7 @@ workspace "Workspace Name" {
 ---
 
 (source_file
-  (workspace (workspace_name))
+  (workspace (name))
 )
 
 

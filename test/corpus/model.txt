@@ -1,0 +1,50 @@
+==================
+empty model
+==================
+
+workspace {
+  model {}
+}
+
+---
+
+(source_file
+  (workspace
+    (model)
+  )
+)
+
+
+==================
+model with persons
+==================
+
+workspace {
+  model {
+    martha = person "Martha" "This is Martha"
+    tom = person "Tom" "This is Tom"
+  }
+}
+
+---
+
+(source_file
+  (workspace
+    (model
+      (assignment
+        (identifier)
+        (person
+          (name)
+          (description)
+        )
+      )
+      (assignment
+        (identifier)
+        (person
+          (name)
+          (description)
+        )
+      )
+    )
+  )
+)
